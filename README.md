@@ -1,1 +1,2 @@
-# ECE467Gams
+# GAMS!!
+## ECE467Gams
