@@ -113,7 +113,21 @@ SumLossFn
 /
 ;
 
+******** Minimizing Emissions *********
 solve ELD Minimizing Emit using NLP;
+
+parameter P(g,k),dualSME(k),dualUP(g,k),dualLO(g,k),totLoss,hourLoss(k);
+P(g,k)        = Pg.l(g,k)*Base;
+dualSME(k)    = LoadEq.m(k)/Base;
+dualUP(g,k)   = GenUp.m(g,k)/Base;
+dualLO(g,k)   = GenLo.m(g,k)/Base;
+totLoss       = SumLoss.l*Base*Base;
+hourLoss(k)   = Loss.l(k)*Base*Base;
+
+display P, Emit.l, totLoss, hourLoss, dualSME, dualUP, dualLO
+
+******** Minimizing Losses *********
+solve ELD Minimizing SumLoss using NLP;
 
 parameter P(g,k),dualSME(k),dualUP(g,k),dualLO(g,k),totLoss,hourLoss(k);
 P(g,k)        = Pg.l(g,k)*Base;

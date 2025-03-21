@@ -1,5 +1,5 @@
 
---- Job PartBMinEmitGroup7.gms Start 03/21/25 15:29:32 48.6.1 67fbb04b WEX-WEI x86 64bit/MS Windows
+--- Job PartBMinEmitGroup7.gms Start 03/21/25 15:35:33 48.6.1 67fbb04b WEX-WEI x86 64bit/MS Windows
 --- Applying:
     C:\GAMS\48\gmsprmNT.txt
 --- GAMS Parameters defined
@@ -32,7 +32,7 @@ GAMS 48.6.1   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- Bound     [min, max] : [        NA,        NA]
 --- Matrix    [min, max] : [ 1.000E+00, 1.355E+02] - Zero values observed as well
 --- PartBMinEmitGroup7.gms(116) 4 Mb
---- Executing CONOPT (Solvelink=2): elapsed 0:00:00.011
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.012
 
 CONOPT 4         48.6.1 67fbb04b Jan 23, 2025          WEI x86 64bit/MS Window
 
@@ -74,7 +74,7 @@ CONOPT 4         48.6.1 67fbb04b Jan 23, 2025          WEI x86 64bit/MS Window
  ** Optimal solution. Reduced gradient less than tolerance.
  
 --- Reading solution for model ELD
---- Executing after solve: elapsed 0:00:00.047
+--- Executing after solve: elapsed 0:00:00.058
 --- PartBMinEmitGroup7.gms(126) 4 Mb
 *** Status: Normal completion
---- Job PartBMinEmitGroup7.gms Stop 03/21/25 15:29:32 elapsed 0:00:00.048
+--- Job PartBMinEmitGroup7.gms Stop 03/21/25 15:35:33 elapsed 0:00:00.058

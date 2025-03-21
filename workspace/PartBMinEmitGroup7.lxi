@@ -1,34 +1,67 @@
 B 3 C o m p i l a t i o n
-B 137 Equation Listing    SOLVE ELD Using NLP From line 116
-D 140 EmitFn
-D 145 LoadEq
-D 162 GenUp
-D 179 GenLo
-D 196 LossFn
-D 213 SumLossFn
-B 219 Column Listing      SOLVE ELD Using NLP From line 116
-E 222 Emit
-E 229 Pg
-E 281 Loss
-E 321 SumLoss
-B 329 Range Statistics    SOLVE ELD Using NLP From line 116
-B 340 Model Statistics    SOLVE ELD Using NLP From line 116
-B 354 Solution Report     SOLVE ELD Using NLP From line 116
-F 403 EmitFn
-F 407 LoadEq
-F 436 GenUp
-F 537 GenLo
-F 638 LossFn
-F 669 SumLossFn
-G 675 Emit
-G 679 Pg
-G 780 Loss
-G 811 SumLoss
-B 914 E x e c u t i o n
-I 914 P
-I 926 Emit
-I 927 totLoss
-I 928 hourLoss
-I 933 dualSME
-I 938 dualUP
-I 947 dualLO
+B 151 Equation Listing    SOLVE ELD Using NLP From line 117
+D 154 EmitFn
+D 159 LoadEq
+D 176 GenUp
+D 193 GenLo
+D 210 LossFn
+D 227 SumLossFn
+B 233 Column Listing      SOLVE ELD Using NLP From line 117
+E 236 Emit
+E 243 Pg
+E 295 Loss
+E 335 SumLoss
+B 343 Range Statistics    SOLVE ELD Using NLP From line 117
+B 354 Model Statistics    SOLVE ELD Using NLP From line 117
+B 368 Solution Report     SOLVE ELD Using NLP From line 117
+F 417 EmitFn
+F 421 LoadEq
+F 450 GenUp
+F 551 GenLo
+F 652 LossFn
+F 683 SumLossFn
+G 689 Emit
+G 693 Pg
+G 794 Loss
+G 825 SumLoss
+B 928 E x e c u t i o n
+I 928 P
+I 940 Emit
+I 941 totLoss
+I 942 hourLoss
+I 947 dualSME
+I 952 dualUP
+I 961 dualLO
+B 971 Equation Listing    SOLVE ELD Using NLP From line 130
+D 974 EmitFn
+D 979 LoadEq
+D 996 GenUp
+D 1013 GenLo
+D 1030 LossFn
+D 1047 SumLossFn
+B 1053 Column Listing      SOLVE ELD Using NLP From line 130
+E 1056 Emit
+E 1063 Pg
+E 1115 Loss
+E 1155 SumLoss
+B 1163 Range Statistics    SOLVE ELD Using NLP From line 130
+B 1174 Model Statistics    SOLVE ELD Using NLP From line 130
+B 1188 Solution Report     SOLVE ELD Using NLP From line 130
+F 1237 EmitFn
+F 1241 LoadEq
+F 1270 GenUp
+F 1371 GenLo
+F 1472 LossFn
+F 1503 SumLossFn
+G 1509 Emit
+G 1513 Pg
+G 1614 Loss
+G 1645 SumLoss
+B 1746 E x e c u t i o n
+I 1746 P
+I 1758 Emit
+I 1759 totLoss
+I 1760 hourLoss
+I 1765 dualSME
+I 1770 dualUP
+I 1779 dualLO

@@ -1,4 +1,4 @@
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 1
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 1
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 C o m p i l a t i o n
 
@@ -118,23 +118,37 @@ C o m p i l a t i o n
  113  /
  114  ;
  115   
- 116  solve ELD Minimizing Emit using NLP;
- 117   
- 118  parameter P(g,k),dualSME(k),dualUP(g,k),dualLO(g,k),totLoss,hourLoss(k);
- 119  P(g,k)        = Pg.l(g,k)*Base;
- 120  dualSME(k)    = LoadEq.m(k)/Base;
- 121  dualUP(g,k)   = GenUp.m(g,k)/Base;
- 122  dualLO(g,k)   = GenLo.m(g,k)/Base;
- 123  totLoss       = SumLoss.l*Base*Base;
- 124  hourLoss(k)   = Loss.l(k)*Base*Base;
- 125   
- 126  display P, Emit.l, totLoss, hourLoss, dualSME, dualUP, dualLO
+ 116  ******** Minimizing Emissions *********
+ 117  solve ELD Minimizing Emit using NLP;
+ 118   
+ 119  parameter P(g,k),dualSME(k),dualUP(g,k),dualLO(g,k),totLoss,hourLoss(k);
+ 120  P(g,k)        = Pg.l(g,k)*Base;
+ 121  dualSME(k)    = LoadEq.m(k)/Base;
+ 122  dualUP(g,k)   = GenUp.m(g,k)/Base;
+ 123  dualLO(g,k)   = GenLo.m(g,k)/Base;
+ 124  totLoss       = SumLoss.l*Base*Base;
+ 125  hourLoss(k)   = Loss.l(k)*Base*Base;
+ 126   
+ 127  display P, Emit.l, totLoss, hourLoss, dualSME, dualUP, dualLO
+ 128   
+ 129  ******** Minimizing Losses *********
+ 130  solve ELD Minimizing SumLoss using NLP;
+ 131   
+ 132  parameter P(g,k),dualSME(k),dualUP(g,k),dualLO(g,k),totLoss,hourLoss(k);
+ 133  P(g,k)        = Pg.l(g,k)*Base;
+ 134  dualSME(k)    = LoadEq.m(k)/Base;
+ 135  dualUP(g,k)   = GenUp.m(g,k)/Base;
+ 136  dualLO(g,k)   = GenLo.m(g,k)/Base;
+ 137  totLoss       = SumLoss.l*Base*Base;
+ 138  hourLoss(k)   = Loss.l(k)*Base*Base;
+ 139   
+ 140  display P, Emit.l, totLoss, hourLoss, dualSME, dualUP, dualLO
 
 
 COMPILATION TIME     =        0.000 SECONDS      3 MB  48.6.1 67fbb04b WEX-WEI
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 2
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 2
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Equation Listing    SOLVE ELD Using NLP From line 116
+Equation Listing    SOLVE ELD Using NLP From line 117
 
 
 ---- EmitFn  =E=  Total system emissions in kg
@@ -214,9 +228,9 @@ REMAINING 18 ENTRIES SKIPPED
 
 SumLossFn..  - Loss(h1) - Loss(h2) - Loss(h3) - Loss(h4) - Loss(h5) - Loss(h6) - Loss(h7) - Loss(h8) - Loss(h9) - Loss(h10) - Loss(h11) - Loss(h12) - Loss(h13) - Loss(h14) - Loss(h15) - Loss(h16) - Loss(h17) - Loss(h18) - Loss(h19) - Loss(h20) - Loss(h21) - Loss(h22) - Loss(h23) - Loss(h24) + SumLoss =E= 0 ; (LHS = 0)
      
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 3
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 3
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Column Listing      SOLVE ELD Using NLP From line 116
+Column Listing      SOLVE ELD Using NLP From line 117
 
 
 ---- Emit  Total system emissions in kg
@@ -324,9 +338,9 @@ SumLoss
                 (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
         1       SumLossFn
 
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 4
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 4
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Range Statistics    SOLVE ELD Using NLP From line 116
+Range Statistics    SOLVE ELD Using NLP From line 117
 
 
 RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
@@ -335,9 +349,9 @@ RHS       [min, max] : [ 5.000E-01, 1.734E+04] - Zero values observed as well
 Bound     [min, max] : [        NA,        NA]
 Matrix    [min, max] : [ 1.000E+00, 1.355E+02] - Zero values observed as well
 
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 5
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 5
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Model Statistics    SOLVE ELD Using NLP From line 116
+Model Statistics    SOLVE ELD Using NLP From line 117
 
 
 MODEL STATISTICS
@@ -349,22 +363,22 @@ CODE LENGTH               1,010     CONSTANT POOL              28
 
 
 GENERATION TIME      =        0.016 SECONDS      4 MB  48.6.1 67fbb04b WEX-WEI
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 6
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 6
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE ELD Using NLP From line 116
+Solution Report     SOLVE ELD Using NLP From line 117
 
 
                S O L V E      S U M M A R Y
 
      MODEL   ELD                 OBJECTIVE  Emit
      TYPE    NLP                 DIRECTION  MINIMIZE
-     SOLVER  CONOPT              FROM LINE  116
+     SOLVER  CONOPT              FROM LINE  117
 
 **** SOLVER STATUS     1 Normal Completion
 **** MODEL STATUS      2 Locally Optimal
 **** OBJECTIVE VALUE           189784.1817
 
- RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ RESOURCE USAGE, LIMIT          0.000 10000000000.000
  ITERATION COUNT, LIMIT         7    2147483647
  EVALUATION ERRORS              0             0
 --- *** This solver runs with a demo license. No commercial use.
@@ -391,7 +405,7 @@ Solution Report     SOLVE ELD Using NLP From line 116
  
  
  CONOPT time Total                            0.004 seconds
-   of which: Function evaluations             0.001 = 25.0%
+   of which: Function evaluations             0.000 =  0.0%
              1st Derivative evaluations       0.000 =  0.0%
              2nd Derivative evaluations       0.000 =  0.0%
              Directional 2nd Deriv(Hess)      0.000 =  0.0%
@@ -817,9 +831,9 @@ h24        -INF            0.0016        +INF             .
                              0 INFEASIBLE
                              0  UNBOUNDED
                              0     ERRORS
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 7
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 7
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
-Solution Report     SOLVE ELD Using NLP From line 116
+Solution Report     SOLVE ELD Using NLP From line 117
 
 
 **** SOLVER STATUS FILE LISTED BELOW
@@ -897,7 +911,7 @@ Search for an optimal solution.
 =1
  
  CONOPT time Total                            0.004 seconds
-   of which: Function evaluations             0.001 = 25.0%
+   of which: Function evaluations             0.000 =  0.0%
              1st Derivative evaluations       0.000 =  0.0%
              2nd Derivative evaluations       0.000 =  0.0%
              Directional 2nd Deriv(Hess)      0.000 =  0.0%
@@ -909,12 +923,12 @@ Search for an optimal solution.
   Total Allocated =      0.25 Mbytes
  
 **** SOLVER STATUS FILE LISTED ABOVE
-GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:35:33 Page 8
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 8
 G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
 E x e c u t i o n
 
 
-----    126 PARAMETER P  
+----    127 PARAMETER P  
 
             h1          h2          h3          h4          h5          h6          h7          h8          h9         h10         h11         h12         h13         h14         h15         h16         h17         h18         h19         h20         h21         h22         h23         h24
 
@@ -924,20 +938,20 @@ g3 3.000000E+2 3.000000E+2 3.000000E+2 3.000000E+2 3.000000E+2 3.000000E+2 3.000
 g4 50.00000000 50.00000000 50.40392521 57.20368056 67.40500843 57.20368056 60.60389719 64.00433981 74.20702378 82.68894177 1.004481E+2 82.68894177 77.60837054 57.20368056 64.00433981 64.00433981 67.40500843 70.80590308 77.60837054 82.68894177 64.00433981 57.20368056 50.00000000 50.00000000
 
 
-----    126 VARIABLE Emit.L                =  1.897842E+5  Total system emissions in kg
+----    127 VARIABLE Emit.L                =  1.897842E+5  Total system emissions in kg
             PARAMETER totLoss              =  7.591770E+2  
 
-----    126 PARAMETER hourLoss  
+----    127 PARAMETER hourLoss  
 
 h1  16.85502553,    h2  19.74451338,    h3  23.19741333,    h4  26.99445985,    h5  33.63997170,    h6  26.99445985,    h7  29.08296740,    h8  31.29813664,    h9  38.70365584,    h10 43.44867239,    h11 44.80628693,    h12 43.44867239,    h13 41.42551317,    h14 26.99445985,    h15 31.29813664,    h16 31.29813664,    h17 33.63997170,    h18 36.10847672,    h19 41.42551317,    h20 43.44867239,    h21 31.29813664,    h22 26.99445985,    h23 21.40515159,    h24 15.62616231
 
 
-----    126 PARAMETER dualSME  
+----    127 PARAMETER dualSME  
 
 h1   7.24430987,    h2   8.56461176,    h3   9.87980764,    h4  11.11075599,    h5  12.95752929,    h6  11.11075599,    h7  11.72630031,    h8  12.34189141,    h9  14.18894539,    h10 15.72451880,    h11 18.93976283,    h12 15.72451880,    h13 14.80472363,    h14 11.11075599,    h15 12.34189141,    h16 12.34189141,    h17 12.95752929,    h18 13.57321395,    h19 14.80472363,    h20 15.72451880,    h21 12.34189141,    h22 11.11075599,    h23  9.22484821,    h24  6.58424442
 
 
-----    126 PARAMETER dualUP  
+----    127 PARAMETER dualUP  
 
             h1          h2          h3          h4          h5          h6          h7          h8          h9         h10         h11         h12         h13         h14         h15         h16         h17         h18         h19         h20         h21         h22         h23         h24
 
@@ -946,15 +960,830 @@ g2                                                                              
 g3 -1.83199397 -3.15134524 -4.46559418 -5.69565624 -7.54109987 -5.69565624 -6.31075738 -6.92590525 -8.77162935 -1.03061E+1 -1.35190E+1 -1.03061E+1 -9.38696423 -5.69565624 -6.92590525 -6.92590525 -7.54109987 -8.15634123 -9.38696423 -1.03061E+1 -6.92590525 -5.69565624 -3.81110632 -1.17240376
 
 
-----    126 PARAMETER dualLO  
+----    127 PARAMETER dualLO  
 
             h1          h2         h23         h24
 
 g4  2.56219723  1.24198776  0.58179753  3.22221648
 
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 9
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE ELD Using NLP From line 130
 
 
-EXECUTION TIME       =        0.063 SECONDS      4 MB  48.6.1 67fbb04b WEX-WEI
+---- EmitFn  =E=  Total system emissions in kg
+
+EmitFn..  Emit - (724.329828693819)*Pg(g1,h1) - (856.314773279993)*Pg(g1,h2) - (987.781075716168)*Pg(g1,h3) - (1110.81861140339)*Pg(g1,h4) - (1295.39650677533)*Pg(g1,h5) - (1110.81861140013)*Pg(g1,h6) - (1172.34169748441)*Pg(g1,h7) - (1233.86766256685)*Pg(g1,h8) - (1418.46283305803)*Pg(g1,h9) - (1571.91622872308)*Pg(g1,h10) - (1653.52)*Pg(g1,h11) - (1571.91622872111)*Pg(g1,h12) - (1480.00031538694)*Pg(g1,h13) - (1110.81861140078)*Pg(g1,h14) - (1233.86766256759)*Pg(g1,h15) - (1233.86766256957)*Pg(g1,h16) - (1295.39650677424)*Pg(g1,h17) - (1356.92823022493)*Pg(g1,h18) - (1480.00031538118)*Pg(g1,h19) - (1571.91622872379)*Pg(g1,h20) - (1233.86766256986)*Pg(g1,h21) - (1110.81861139905)*Pg(g1,h22) - (922.312693741424)*Pg(g1,h23) - (658.342804097217)*Pg(g1,h24) - (724.147454195161)*Pg(g2,h1) - (856.052184417342)*Pg(g2,h2) - (987.424195839625)*Pg(g2,h3) - (1110.36047623894)*Pg(g2,h4) - (1294.76288565965)*Pg(g2,h5) - (1110.36047624088)*Pg(g2,h6) - (1171.82821427952)*Pg(g2,h7) - (1233.29568411257)*Pg(g2,h8) - (1417.69648363767)*Pg(g2,h9) - (1502.89)*Pg(g2,h10) - (1502.89)*Pg(g2,h11) - (1502.89)*Pg(g2,h12) - (1479.16287990997)*Pg(g2,h13) - (1110.36047624035)*Pg(g2,h14) - (1233.29568411273)*Pg(g2,h15) - (1233.29568410953)*Pg(g2,h16) - (1294.76288566449)*Pg(g2,h17) - (1356.22981886886)*Pg(g2,h18) - (1479.16287991194)*Pg(g2,h19) - (1502.89)*Pg(g2,h20) - (1233.29568410848)*Pg(g2,h21) - (1110.36047624139)*Pg(g2,h22) - (922.004564732207)*Pg(g2,h23) - (658.19510442769)*Pg(g2,h24) - (540.71)*Pg(g3,h1) - (540.71)*Pg(g3,h2) - (540.71)*Pg(g3,h3) - (540.71)*Pg(g3,h4) - (540.71)*Pg(g3,h5) - (540.71)*Pg(g3,h6) - (540.71)*Pg(g3,h7) - (540.71)*Pg(g3,h8) - (540.71)*Pg(g3,h9) - (540.71)*Pg(g3,h10) - (540.71)*Pg(g3,h11) - (540.71)*Pg(g3,h12) - (540.71)*Pg(g3,h13) - (540.71)*Pg(g3,h14) - (540.71)*Pg(g3,h15) - (540.71)*Pg(g3,h16) - (540.71)*Pg(g3,h17) - (540.71)*Pg(g3,h18) - (540.71)*Pg(g3,h19) - (540.71)*Pg(g3,h20) - (540.71)*Pg(g3,h21) - (540.71)*Pg(g3,h22) - (540.71)*Pg(g3,h23) - (540.71)*Pg(g3,h24) - (980.6)*Pg(g4,h1) - (980.6)*Pg(g4,h2) - (987.911046348808)*Pg(g4,h3) - (1110.986618204)*Pg(g4,h4) - (1295.63065260205)*Pg(g4,h5) - (1110.98661820892)*Pg(g4,h6) - (1172.5305391341)*Pg(g4,h7) - (1234.07855047831)*Pg(g4,h8) - (1418.74713038749)*Pg(g4,h9) - (1572.26984611074)*Pg(g4,h10) - (1893.70993793495)*Pg(g4,h11) - (1572.26984612479)*Pg(g4,h12) - (1480.31150676447)*Pg(g4,h13) - (1110.98661820768)*Pg(g4,h14) - (1234.07855047201)*Pg(g4,h15) - (1234.07855047882)*Pg(g4,h16) - (1295.63065257816)*Pg(g4,h17) - (1357.18684577095)*Pg(g4,h18) - (1480.31150678576)*Pg(g4,h19) - (1572.26984610565)*Pg(g4,h20) - (1234.07855048359)*Pg(g4,h21) - (1110.98661821329)*Pg(g4,h22) - (980.6)*Pg(g4,h23) - (980.6)*Pg(g4,h24) =E= 17341.392 ; (LHS = 17341.392)
+     
+
+---- LoadEq  =E=  Demand supply balance
+
+LoadEq(h1)..  Pg(g1,h1) + Pg(g2,h1) + Pg(g3,h1) + Pg(g4,h1) - Loss(h1) =E= 8 ; (LHS = 8)
+     
+LoadEq(h2)..  Pg(g1,h2) + Pg(g2,h2) + Pg(g3,h2) + Pg(g4,h2) - Loss(h2) =E= 9 ; (LHS = 9)
+     
+LoadEq(h3)..  Pg(g1,h3) + Pg(g2,h3) + Pg(g3,h3) + Pg(g4,h3) - Loss(h3) =E= 10 ; (LHS = 10)
+     
+LoadEq(h4)..  Pg(g1,h4) + Pg(g2,h4) + Pg(g3,h4) + Pg(g4,h4) - Loss(h4) =E= 11 ; (LHS = 11.0000000000032, INFES = 3.17539224081731E-12 ****)
+     
+LoadEq(h5)..  Pg(g1,h5) + Pg(g2,h5) + Pg(g3,h5) + Pg(g4,h5) - Loss(h5) =E= 12.5 ; (LHS = 12.5)
+     
+LoadEq(h6)..  Pg(g1,h6) + Pg(g2,h6) + Pg(g3,h6) + Pg(g4,h6) - Loss(h6) =E= 11 ; (LHS = 11)
+     
+REMAINING 18 ENTRIES SKIPPED
+
+
+---- GenUp  =L=  Generation upper limit
+
+GenUp(g1,h1)..  Pg(g1,h1) =L= 6 ; (LHS = 2.3273115758649)
+     
+GenUp(g1,h2)..  Pg(g1,h2) =L= 6 ; (LHS = 2.84899119873515)
+     
+GenUp(g1,h3)..  Pg(g1,h3) =L= 6 ; (LHS = 3.36862085263308)
+     
+GenUp(g1,h4)..  Pg(g1,h4) =L= 6 ; (LHS = 3.85493522293831)
+     
+GenUp(g1,h5)..  Pg(g1,h5) =L= 6 ; (LHS = 4.58449212164164)
+     
+GenUp(g1,h6)..  Pg(g1,h6) =L= 6 ; (LHS = 3.8549352229254)
+     
+REMAINING 90 ENTRIES SKIPPED
+
+
+---- GenLo  =G=  Generation lower limit
+
+GenLo(g1,h1)..  Pg(g1,h1) =G= 1.5 ; (LHS = 2.3273115758649)
+     
+GenLo(g1,h2)..  Pg(g1,h2) =G= 1.5 ; (LHS = 2.84899119873515)
+     
+GenLo(g1,h3)..  Pg(g1,h3) =G= 1.5 ; (LHS = 3.36862085263308)
+     
+GenLo(g1,h4)..  Pg(g1,h4) =G= 1.5 ; (LHS = 3.85493522293831)
+     
+GenLo(g1,h5)..  Pg(g1,h5) =G= 1.5 ; (LHS = 4.58449212164164)
+     
+GenLo(g1,h6)..  Pg(g1,h6) =G= 1.5 ; (LHS = 3.8549352229254)
+     
+REMAINING 90 ENTRIES SKIPPED
+
+
+---- LossFn  =E=  Loss per hour
+
+LossFn(h1)..  - (0.000139638694551894)*Pg(g1,h1) - (0.000391387306803806)*Pg(g2,h1) - (0.00072)*Pg(g3,h1) - (7E-5)*Pg(g4,h1) + Loss(h1) =E= 0 ; (LHS = 0)
+     
+LossFn(h2)..  - (0.000170939471924109)*Pg(g1,h2) - (0.000477536985468511)*Pg(g2,h2) - (0.00072)*Pg(g3,h2) - (7E-5)*Pg(g4,h2) + Loss(h2) =E= 0 ; (LHS = 0)
+     
+LossFn(h3)..  - (0.000202117251157985)*Pg(g1,h3) - (0.00056333873458321)*Pg(g2,h3) - (0.00072)*Pg(g3,h3) - (7.05654952976978E-5)*Pg(g4,h3) + Loss(h3) =E= 0 ; (LHS = 0)
+     
+LossFn(h4)..  - (0.000231296113376298)*Pg(g1,h4) - (0.000643630935134288)*Pg(g2,h4) - (0.00072)*Pg(g3,h4) - (8.00851527892594E-5)*Pg(g4,h4) + Loss(h4) =E= 0 ; (LHS = 0)
+     
+LossFn(h5)..  - (0.000275069527298498)*Pg(g1,h5) - (0.000764067922419222)*Pg(g2,h5) - (0.00072)*Pg(g3,h5) - (9.43670118034735E-5)*Pg(g4,h5) + Loss(h5) =E= 0 ; (LHS = 0)
+     
+LossFn(h6)..  - (0.000231296113375524)*Pg(g1,h6) - (0.000643630935135551)*Pg(g2,h6) - (0.00072)*Pg(g3,h6) - (8.00851527896405E-5)*Pg(g4,h6) + Loss(h6) =E= 0 ; (LHS = 0)
+     
+REMAINING 18 ENTRIES SKIPPED
+
+
+---- SumLossFn  =E=  Total system losses in MW/MW
+
+SumLossFn..  - Loss(h1) - Loss(h2) - Loss(h3) - Loss(h4) - Loss(h5) - Loss(h6) - Loss(h7) - Loss(h8) - Loss(h9) - Loss(h10) - Loss(h11) - Loss(h12) - Loss(h13) - Loss(h14) - Loss(h15) - Loss(h16) - Loss(h17) - Loss(h18) - Loss(h19) - Loss(h20) - Loss(h21) - Loss(h22) - Loss(h23) - Loss(h24) + SumLoss =E= 0 ; (LHS = 0)
+     
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 10
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE ELD Using NLP From line 130
+
+
+---- Emit  Total system emissions in kg
+
+Emit
+                (.LO, .L, .UP, .M = -INF, 189784.18168294, +INF, 0)
+        1       EmitFn
+
+
+---- Pg  Active power generated by unit g at time t (p.u)
+
+Pg(g1,h1)
+                (.LO, .L, .UP, .M = -INF, 2.3273115758649, +INF, 0)
+    (-724.3298) EmitFn
+        1       LoadEq(h1)
+        1       GenUp(g1,h1)
+        1       GenLo(g1,h1)
+      (-0.0001) LossFn(h1)
+
+Pg(g1,h2)
+                (.LO, .L, .UP, .M = -INF, 2.84899119873515, +INF, -4.45140813098988E-9)
+    (-856.3148) EmitFn
+        1       LoadEq(h2)
+        1       GenUp(g1,h2)
+        1       GenLo(g1,h2)
+      (-0.0002) LossFn(h2)
+
+Pg(g1,h3)
+                (.LO, .L, .UP, .M = -INF, 3.36862085263308, +INF, EPS)
+    (-987.7811) EmitFn
+        1       LoadEq(h3)
+        1       GenUp(g1,h3)
+        1       GenLo(g1,h3)
+      (-0.0002) LossFn(h3)
+
+Pg(g1,h4)
+                (.LO, .L, .UP, .M = -INF, 3.85493522293831, +INF, 5.43013811693527E-9)
+   (-1110.8186) EmitFn
+        1       LoadEq(h4)
+        1       GenUp(g1,h4)
+        1       GenLo(g1,h4)
+      (-0.0002) LossFn(h4)
+
+Pg(g1,h5)
+                (.LO, .L, .UP, .M = -INF, 4.58449212164164, +INF, 0)
+   (-1295.3965) EmitFn
+        1       LoadEq(h5)
+        1       GenUp(g1,h5)
+        1       GenLo(g1,h5)
+      (-0.0003) LossFn(h5)
+
+Pg(g1,h6)
+                (.LO, .L, .UP, .M = -INF, 3.8549352229254, +INF, EPS)
+   (-1110.8186) EmitFn
+        1       LoadEq(h6)
+        1       GenUp(g1,h6)
+        1       GenLo(g1,h6)
+      (-0.0002) LossFn(h6)
+
+REMAINING 90 ENTRIES SKIPPED
+
+---- Loss  Losses in MW/MW
+
+Loss(h1)
+                (.LO, .L, .UP, .M = -INF, 0.00168550255271002, +INF, 0)
+       -1       LoadEq(h1)
+        1       LossFn(h1)
+       -1       SumLossFn
+
+Loss(h2)
+                (.LO, .L, .UP, .M = -INF, 0.00197445133798731, +INF, 0)
+       -1       LoadEq(h2)
+        1       LossFn(h2)
+       -1       SumLossFn
+
+Loss(h3)
+                (.LO, .L, .UP, .M = -INF, 0.00231974133287342, +INF, 0)
+       -1       LoadEq(h3)
+        1       LossFn(h3)
+       -1       SumLossFn
+
+Loss(h4)
+                (.LO, .L, .UP, .M = -INF, 0.00269944598540912, +INF, 0)
+       -1       LoadEq(h4)
+        1       LossFn(h4)
+       -1       SumLossFn
+
+Loss(h5)
+                (.LO, .L, .UP, .M = -INF, 0.00336399717006081, +INF, 0)
+       -1       LoadEq(h5)
+        1       LossFn(h5)
+       -1       SumLossFn
+
+Loss(h6)
+                (.LO, .L, .UP, .M = -INF, 0.00269944598541087, +INF, 0)
+       -1       LoadEq(h6)
+        1       LossFn(h6)
+       -1       SumLossFn
+
+REMAINING 18 ENTRIES SKIPPED
+
+---- SumLoss  Total system losses in MW/MW
+
+SumLoss
+                (.LO, .L, .UP, .M = -INF, 0.0759177025899537, +INF, 0)
+        1       SumLossFn
+
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 11
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE ELD Using NLP From line 130
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 5.000E-01, 1.734E+04] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA]
+Matrix    [min, max] : [ 7.000E-05, 1.894E+03]
+
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 12
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE ELD Using NLP From line 130
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           6     SINGLE EQUATIONS          242
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES          122
+NON ZERO ELEMENTS           554     NON LINEAR N-Z            192
+CODE LENGTH               1,010     CONSTANT POOL              28
+
+
+GENERATION TIME      =        0.000 SECONDS      4 MB  48.6.1 67fbb04b WEX-WEI
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 13
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE ELD Using NLP From line 130
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   ELD                 OBJECTIVE  SumLoss
+     TYPE    NLP                 DIRECTION  MINIMIZE
+     SOLVER  CONOPT              FROM LINE  130
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      2 Locally Optimal
+**** OBJECTIVE VALUE                0.0529
+
+ RESOURCE USAGE, LIMIT          0.016 10000000000.000
+ ITERATION COUNT, LIMIT         6    2147483647
+ EVALUATION ERRORS              0             0
+--- *** This solver runs with a demo license. No commercial use.
+ 
+ 
+    C O N O P T   version 4.35
+    Copyright (C) GAMS Software GmbH
+                  GAMS Development Corporation
+ 
+ 
+    The user model has 242 constraints and 122 variables
+    with 554 Jacobian elements, 192 of which are nonlinear.
+    The Hessian of the Lagrangian has 96 elements on the diagonal,
+    0 elements below the diagonal, and 96 nonlinear variables.
+ 
+    The pre-triangular part of the model has 192 constraints and 0 variables.
+    The post-triangular part of the model has 2 constraints and variables.
+    There are 24 definitional constraints and defined variables.
+ 
+    Preprocessed model has 24 constraints and 96 variables
+    with 96 Jacobian elements, 96 of which are nonlinear.
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+ 
+ CONOPT time Total                            0.004 seconds
+   of which: Function evaluations             0.001 = 25.0%
+             1st Derivative evaluations       0.001 = 25.0%
+             2nd Derivative evaluations       0.000 =  0.0%
+             Directional 2nd Deriv(Hess)      0.000 =  0.0%
+             Interval derivative evals        0.000 =  0.0%
+ 
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU EmitFn         17341.3920     17341.3920     17341.3920         EPS         
+
+  EmitFn  Total system emissions in kg
+
+---- EQU LoadEq  Demand supply balance
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+h1          8.0000         8.0000         8.0000         0.0002      
+h2          9.0000         9.0000         9.0000         0.0003      
+h3         10.0000        10.0000        10.0000         0.0003      
+h4         11.0000        11.0000        11.0000         0.0003      
+h5         12.5000        12.5000        12.5000         0.0004      
+h6         11.0000        11.0000        11.0000         0.0003      
+h7         11.5000        11.5000        11.5000         0.0003      
+h8         12.0000        12.0000        12.0000         0.0004      
+h9         13.5000        13.5000        13.5000         0.0005      
+h10        14.5000        14.5000        14.5000         0.0006      
+h11        15.0000        15.0000        15.0000         0.0006      
+h12        14.5000        14.5000        14.5000         0.0006      
+h13        14.0000        14.0000        14.0000         0.0005      
+h14        11.0000        11.0000        11.0000         0.0003      
+h15        12.0000        12.0000        12.0000         0.0004      
+h16        12.0000        12.0000        12.0000         0.0004      
+h17        12.5000        12.5000        12.5000         0.0004      
+h18        13.0000        13.0000        13.0000         0.0004      
+h19        14.0000        14.0000        14.0000         0.0005      
+h20        14.5000        14.5000        14.5000         0.0006      
+h21        12.0000        12.0000        12.0000         0.0004      
+h22        11.0000        11.0000        11.0000         0.0003      
+h23         9.5000         9.5000         9.5000         0.0003      
+h24         7.5000         7.5000         7.5000         0.0002      
+
+---- EQU GenUp  Generation upper limit
+
+              LOWER          LEVEL          UPPER         MARGINAL
+
+g1.h1         -INF            3.9768         6.0000          .          
+g1.h2         -INF            4.4740         6.0000          .          
+g1.h3         -INF            4.9712         6.0000          .          
+g1.h4         -INF            5.4684         6.0000          .          
+g1.h5         -INF            6.0000         6.0000   -2.556499E-5      
+g1.h6         -INF            5.4683         6.0000          .          
+g1.h7         -INF            5.7170         6.0000          .          
+g1.h8         -INF            5.9656         6.0000          .          
+g1.h9         -INF            6.0000         6.0000        -0.0001      
+g1.h10        -INF            6.0000         6.0000        -0.0002      
+g1.h11        -INF            6.0000         6.0000        -0.0003      
+g1.h12        -INF            6.0000         6.0000        -0.0002      
+g1.h13        -INF            6.0000         6.0000        -0.0002      
+g1.h14        -INF            5.4683         6.0000          .          
+g1.h15        -INF            5.9657         6.0000          .          
+g1.h16        -INF            5.9656         6.0000          .          
+g1.h17        -INF            6.0000         6.0000   -2.555767E-5      
+g1.h18        -INF            6.0000         6.0000        -0.0001      
+g1.h19        -INF            6.0000         6.0000        -0.0002      
+g1.h20        -INF            6.0000         6.0000        -0.0002      
+g1.h21        -INF            5.9654         6.0000          .          
+g1.h22        -INF            5.4683         6.0000          .          
+g1.h23        -INF            4.7227         6.0000          .          
+g1.h24        -INF            3.7282         6.0000          .          
+g2.h1         -INF            1.3258         5.0000          .          
+g2.h2         -INF            1.4914         5.0000          .          
+g2.h3         -INF            1.6570         5.0000          .          
+g2.h4         -INF            1.8228         5.0000          .          
+g2.h5         -INF            2.1420         5.0000          .          
+g2.h6         -INF            1.8227         5.0000          .          
+g2.h7         -INF            1.9057         5.0000          .          
+g2.h8         -INF            1.9884         5.0000          .          
+g2.h9         -INF            2.5730         5.0000          .          
+g2.h10        -INF            3.1447         5.0000          .          
+g2.h11        -INF            3.4306         5.0000          .          
+g2.h12        -INF            3.1447         5.0000          .          
+g2.h13        -INF            2.8588         5.0000          .          
+g2.h14        -INF            1.8227         5.0000          .          
+g2.h15        -INF            1.9884         5.0000          .          
+g2.h16        -INF            1.9884         5.0000          .          
+g2.h17        -INF            2.1420         5.0000          .          
+g2.h18        -INF            2.3068         5.0000          .          
+g2.h19        -INF            2.8590         5.0000          .          
+g2.h20        -INF            3.1447         5.0000          .          
+g2.h21        -INF            1.9886         5.0000          .          
+g2.h22        -INF            1.8227         5.0000          .          
+g2.h23        -INF            1.5742         5.0000          .          
+g2.h24        -INF            1.2429         5.0000          .          
+g3.h1         -INF            0.9942         3.0000          .          
+g3.h2         -INF            1.1185         3.0000          .          
+g3.h3         -INF            1.2428         3.0000          .          
+g3.h4         -INF            1.3670         3.0000          .          
+g3.h5         -INF            1.6065         3.0000          .          
+g3.h6         -INF            1.3671         3.0000          .          
+g3.h7         -INF            1.4292         3.0000          .          
+g3.h8         -INF            1.4914         3.0000          .          
+g3.h9         -INF            1.9297         3.0000          .          
+g3.h10        -INF            2.3585         3.0000          .          
+g3.h11        -INF            2.5730         3.0000          .          
+g3.h12        -INF            2.3585         3.0000          .          
+g3.h13        -INF            2.1442         3.0000          .          
+g3.h14        -INF            1.3671         3.0000          .          
+g3.h15        -INF            1.4914         3.0000          .          
+g3.h16        -INF            1.4914         3.0000          .          
+g3.h17        -INF            1.6064         3.0000          .          
+g3.h18        -INF            1.7301         3.0000          .          
+g3.h19        -INF            2.1440         3.0000          .          
+g3.h20        -INF            2.3585         3.0000          .          
+g3.h21        -INF            1.4914         3.0000          .          
+g3.h22        -INF            1.3671         3.0000          .          
+g3.h23        -INF            1.1806         3.0000          .          
+g3.h24        -INF            0.9321         3.0000          .          
+g4.h1         -INF            1.7041         3.0000          .          
+g4.h2         -INF            1.9174         3.0000          .          
+g4.h3         -INF            2.1305         3.0000          .          
+g4.h4         -INF            2.3436         3.0000          .          
+g4.h5         -INF            2.7538         3.0000          .          
+g4.h6         -INF            2.3437         3.0000          .          
+g4.h7         -INF            2.4501         3.0000          .          
+g4.h8         -INF            2.5567         3.0000          .          
+g4.h9         -INF            3.0000         3.0000   -4.316131E-5      
+g4.h10        -INF            3.0000         3.0000        -0.0001      
+g4.h11        -INF            3.0000         3.0000        -0.0002      
+g4.h12        -INF            3.0000         3.0000        -0.0001      
+g4.h13        -INF            3.0000         3.0000        -0.0001      
+g4.h14        -INF            2.3437         3.0000          .          
+g4.h15        -INF            2.5567         3.0000          .          
+g4.h16        -INF            2.5567         3.0000          .          
+g4.h17        -INF            2.7539         3.0000          .          
+g4.h18        -INF            2.9657         3.0000          .          
+g4.h19        -INF            3.0000         3.0000        -0.0001      
+g4.h20        -INF            3.0000         3.0000        -0.0001      
+g4.h21        -INF            2.5568         3.0000          .          
+g4.h22        -INF            2.3437         3.0000          .          
+g4.h23        -INF            2.0239         3.0000          .          
+g4.h24        -INF            1.5977         3.0000          .          
+
+---- EQU GenLo  Generation lower limit
+
+              LOWER          LEVEL          UPPER         MARGINAL
+
+g1.h1          1.5000         3.9768        +INF             .          
+g1.h2          1.5000         4.4740        +INF             .          
+g1.h3          1.5000         4.9712        +INF             .          
+g1.h4          1.5000         5.4684        +INF             .          
+g1.h5          1.5000         6.0000        +INF             .          
+g1.h6          1.5000         5.4683        +INF             .          
+g1.h7          1.5000         5.7170        +INF             .          
+g1.h8          1.5000         5.9656        +INF             .          
+g1.h9          1.5000         6.0000        +INF             .          
+g1.h10         1.5000         6.0000        +INF             .          
+g1.h11         1.5000         6.0000        +INF             .          
+g1.h12         1.5000         6.0000        +INF             .          
+g1.h13         1.5000         6.0000        +INF             .          
+g1.h14         1.5000         5.4683        +INF             .          
+g1.h15         1.5000         5.9657        +INF             .          
+g1.h16         1.5000         5.9656        +INF             .          
+g1.h17         1.5000         6.0000        +INF             .          
+g1.h18         1.5000         6.0000        +INF             .          
+g1.h19         1.5000         6.0000        +INF             .          
+g1.h20         1.5000         6.0000        +INF             .          
+g1.h21         1.5000         5.9654        +INF             .          
+g1.h22         1.5000         5.4683        +INF             .          
+g1.h23         1.5000         4.7227        +INF             .          
+g1.h24         1.5000         3.7282        +INF             .          
+g2.h1          1.0000         1.3258        +INF             .          
+g2.h2          1.0000         1.4914        +INF             .          
+g2.h3          1.0000         1.6570        +INF             .          
+g2.h4          1.0000         1.8228        +INF             .          
+g2.h5          1.0000         2.1420        +INF             .          
+g2.h6          1.0000         1.8227        +INF             .          
+g2.h7          1.0000         1.9057        +INF             .          
+g2.h8          1.0000         1.9884        +INF             .          
+g2.h9          1.0000         2.5730        +INF             .          
+g2.h10         1.0000         3.1447        +INF             .          
+g2.h11         1.0000         3.4306        +INF             .          
+g2.h12         1.0000         3.1447        +INF             .          
+g2.h13         1.0000         2.8588        +INF             .          
+g2.h14         1.0000         1.8227        +INF             .          
+g2.h15         1.0000         1.9884        +INF             .          
+g2.h16         1.0000         1.9884        +INF             .          
+g2.h17         1.0000         2.1420        +INF             .          
+g2.h18         1.0000         2.3068        +INF             .          
+g2.h19         1.0000         2.8590        +INF             .          
+g2.h20         1.0000         3.1447        +INF             .          
+g2.h21         1.0000         1.9886        +INF             .          
+g2.h22         1.0000         1.8227        +INF             .          
+g2.h23         1.0000         1.5742        +INF             .          
+g2.h24         1.0000         1.2429        +INF             .          
+g3.h1          0.5000         0.9942        +INF             .          
+g3.h2          0.5000         1.1185        +INF             .          
+g3.h3          0.5000         1.2428        +INF             .          
+g3.h4          0.5000         1.3670        +INF             .          
+g3.h5          0.5000         1.6065        +INF             .          
+g3.h6          0.5000         1.3671        +INF             .          
+g3.h7          0.5000         1.4292        +INF             .          
+g3.h8          0.5000         1.4914        +INF             .          
+g3.h9          0.5000         1.9297        +INF             .          
+g3.h10         0.5000         2.3585        +INF             .          
+g3.h11         0.5000         2.5730        +INF             .          
+g3.h12         0.5000         2.3585        +INF             .          
+g3.h13         0.5000         2.1442        +INF             .          
+g3.h14         0.5000         1.3671        +INF             .          
+g3.h15         0.5000         1.4914        +INF             .          
+g3.h16         0.5000         1.4914        +INF             .          
+g3.h17         0.5000         1.6064        +INF             .          
+g3.h18         0.5000         1.7301        +INF             .          
+g3.h19         0.5000         2.1440        +INF             .          
+g3.h20         0.5000         2.3585        +INF             .          
+g3.h21         0.5000         1.4914        +INF             .          
+g3.h22         0.5000         1.3671        +INF             .          
+g3.h23         0.5000         1.1806        +INF             .          
+g3.h24         0.5000         0.9321        +INF             .          
+g4.h1          0.5000         1.7041        +INF             .          
+g4.h2          0.5000         1.9174        +INF             .          
+g4.h3          0.5000         2.1305        +INF             .          
+g4.h4          0.5000         2.3436        +INF             .          
+g4.h5          0.5000         2.7538        +INF             .          
+g4.h6          0.5000         2.3437        +INF             .          
+g4.h7          0.5000         2.4501        +INF             .          
+g4.h8          0.5000         2.5567        +INF             .          
+g4.h9          0.5000         3.0000        +INF             .          
+g4.h10         0.5000         3.0000        +INF             .          
+g4.h11         0.5000         3.0000        +INF             .          
+g4.h12         0.5000         3.0000        +INF             .          
+g4.h13         0.5000         3.0000        +INF             .          
+g4.h14         0.5000         2.3437        +INF             .          
+g4.h15         0.5000         2.5567        +INF             .          
+g4.h16         0.5000         2.5567        +INF             .          
+g4.h17         0.5000         2.7539        +INF             .          
+g4.h18         0.5000         2.9657        +INF             .          
+g4.h19         0.5000         3.0000        +INF             .          
+g4.h20         0.5000         3.0000        +INF             .          
+g4.h21         0.5000         2.5568        +INF             .          
+g4.h22         0.5000         2.3437        +INF             .          
+g4.h23         0.5000         2.0239        +INF             .          
+g4.h24         0.5000         1.5977        +INF             .          
+
+---- EQU LossFn  Loss per hour
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+h1           .              .              .             1.0002      
+h2           .              .              .             1.0003      
+h3           .              .              .             1.0003      
+h4           .              .              .             1.0003      
+h5           .              .              .             1.0004      
+h6           .              .              .             1.0003      
+h7           .              .              .             1.0003      
+h8           .              .              .             1.0004      
+h9           .              .              .             1.0005      
+h10          .              .              .             1.0006      
+h11          .              .              .             1.0006      
+h12          .              .              .             1.0006      
+h13          .              .              .             1.0005      
+h14          .              .              .             1.0003      
+h15          .              .              .             1.0004      
+h16          .              .              .             1.0004      
+h17          .              .              .             1.0004      
+h18          .              .              .             1.0004      
+h19          .              .              .             1.0005      
+h20          .              .              .             1.0006      
+h21          .              .              .             1.0004      
+h22          .              .              .             1.0003      
+h23          .              .              .             1.0003      
+h24          .              .              .             1.0002      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU SumLossFn           .              .              .             1.0000      
+
+  SumLossFn  Total system losses in MW/MW
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR Emit              -INF       310640.4395        +INF             .          
+
+  Emit  Total system emissions in kg
+
+---- VAR Pg  Active power generated by unit g at time t (p.u)
+
+              LOWER          LEVEL          UPPER         MARGINAL
+
+g1.h1         -INF            3.9768        +INF             .          
+g1.h2         -INF            4.4740        +INF             .          
+g1.h3         -INF            4.9712        +INF      7.1771136E-9      
+g1.h4         -INF            5.4684        +INF             .          
+g1.h5         -INF            6.0000        +INF             .          
+g1.h6         -INF            5.4683        +INF      -6.057086E-9      
+g1.h7         -INF            5.7170        +INF             .          
+g1.h8         -INF            5.9656        +INF      4.0640515E-9      
+g1.h9         -INF            6.0000        +INF             .          
+g1.h10        -INF            6.0000        +INF             .          
+g1.h11        -INF            6.0000        +INF             .          
+g1.h12        -INF            6.0000        +INF             .          
+g1.h13        -INF            6.0000        +INF             .          
+g1.h14        -INF            5.4683        +INF      -6.057068E-9      
+g1.h15        -INF            5.9657        +INF      2.1844359E-9      
+g1.h16        -INF            5.9656        +INF      4.0640511E-9      
+g1.h17        -INF            6.0000        +INF             .          
+g1.h18        -INF            6.0000        +INF             .          
+g1.h19        -INF            6.0000        +INF             .          
+g1.h20        -INF            6.0000        +INF             .          
+g1.h21        -INF            5.9654        +INF      -1.803693E-8      
+g1.h22        -INF            5.4683        +INF      -6.057068E-9      
+g1.h23        -INF            4.7227        +INF      1.9573081E-8      
+g1.h24        -INF            3.7282        +INF             .          
+g2.h1         -INF            1.3258        +INF      3.0779553E-8      
+g2.h2         -INF            1.4914        +INF      1.0343617E-8      
+g2.h3         -INF            1.6570        +INF             .          
+g2.h4         -INF            1.8228        +INF      -8.885766E-9      
+g2.h5         -INF            2.1420        +INF             .          
+g2.h6         -INF            1.8227        +INF      -1.543060E-8      
+g2.h7         -INF            1.9057        +INF            EPS         
+g2.h8         -INF            1.9884        +INF      -1.037821E-8      
+g2.h9         -INF            2.5730        +INF             .          
+g2.h10        -INF            3.1447        +INF             .          
+g2.h11        -INF            3.4306        +INF             .          
+g2.h12        -INF            3.1447        +INF             .          
+g2.h13        -INF            2.8588        +INF             .          
+g2.h14        -INF            1.8227        +INF      -1.543058E-8      
+g2.h15        -INF            1.9884        +INF      -2.833961E-8      
+g2.h16        -INF            1.9884        +INF      -1.037821E-8      
+g2.h17        -INF            2.1420        +INF      1.1675354E-8      
+g2.h18        -INF            2.3068        +INF             .          
+g2.h19        -INF            2.8590        +INF      4.0534658E-8      
+g2.h20        -INF            3.1447        +INF             .          
+g2.h21        -INF            1.9886        +INF             .          
+g2.h22        -INF            1.8227        +INF      -1.543058E-8      
+g2.h23        -INF            1.5742        +INF      4.1532719E-9      
+g2.h24        -INF            1.2429        +INF      2.3157399E-8      
+g3.h1         -INF            0.9942        +INF      5.0705936E-9      
+g3.h2         -INF            1.1185        +INF      3.7870311E-9      
+g3.h3         -INF            1.2428        +INF      -3.851420E-9      
+g3.h4         -INF            1.3670        +INF      -2.083158E-8      
+g3.h5         -INF            1.6065        +INF      1.1240974E-8      
+g3.h6         -INF            1.3671        +INF             .          
+g3.h7         -INF            1.4292        +INF      -1.992421E-8      
+g3.h8         -INF            1.4914        +INF             .          
+g3.h9         -INF            1.9297        +INF      -2.433007E-9      
+g3.h10        -INF            2.3585        +INF      -3.492203E-9      
+g3.h11        -INF            2.5730        +INF            EPS         
+g3.h12        -INF            2.3585        +INF      -3.492203E-9      
+g3.h13        -INF            2.1442        +INF      4.9651996E-9      
+g3.h14        -INF            1.3671        +INF             .          
+g3.h15        -INF            1.4914        +INF      -7.903446E-9      
+g3.h16        -INF            1.4914        +INF             .          
+g3.h17        -INF            1.6064        +INF      -6.191391E-9      
+g3.h18        -INF            1.7301        +INF      1.0335731E-8      
+g3.h19        -INF            2.1440        +INF             .          
+g3.h20        -INF            2.3585        +INF      -3.492203E-9      
+g3.h21        -INF            1.4914        +INF      -1.484462E-8      
+g3.h22        -INF            1.3671        +INF             .          
+g3.h23        -INF            1.1806        +INF      -3.547117E-9      
+g3.h24        -INF            0.9321        +INF      2.9134177E-9      
+g4.h1         -INF            1.7041        +INF      -3.554865E-8      
+g4.h2         -INF            1.9174        +INF      -8.110937E-9      
+g4.h3         -INF            2.1305        +INF            EPS         
+g4.h4         -INF            2.3436        +INF      -7.993079E-9      
+g4.h5         -INF            2.7538        +INF      -1.837607E-8      
+g4.h6         -INF            2.3437        +INF      6.4158865E-9      
+g4.h7         -INF            2.4501        +INF      -6.335105E-9      
+g4.h8         -INF            2.5567        +INF      1.3723856E-8      
+g4.h9         -INF            3.0000        +INF             .          
+g4.h10        -INF            3.0000        +INF             .          
+g4.h11        -INF            3.0000        +INF             .          
+g4.h12        -INF            3.0000        +INF             .          
+g4.h13        -INF            3.0000        +INF             .          
+g4.h14        -INF            2.3437        +INF      6.4159022E-9      
+g4.h15        -INF            2.5567        +INF             .          
+g4.h16        -INF            2.5567        +INF      1.3723855E-8      
+g4.h17        -INF            2.7539        +INF             .          
+g4.h18        -INF            2.9657        +INF      -2.606015E-8      
+g4.h19        -INF            3.0000        +INF             .          
+g4.h20        -INF            3.0000        +INF             .          
+g4.h21        -INF            2.5568        +INF      3.3828694E-9      
+g4.h22        -INF            2.3437        +INF      6.4159018E-9      
+g4.h23        -INF            2.0239        +INF             .          
+g4.h24        -INF            1.5977        +INF      -2.045130E-8      
+
+---- VAR Loss  Losses in MW/MW
+
+           LOWER          LEVEL          UPPER         MARGINAL
+
+h1         -INF            0.0010        +INF             .          
+h2         -INF            0.0012        +INF             .          
+h3         -INF            0.0015        +INF             .          
+h4         -INF            0.0018        +INF             .          
+h5         -INF            0.0023        +INF             .          
+h6         -INF            0.0018        +INF             .          
+h7         -INF            0.0020        +INF             .          
+h8         -INF            0.0021        +INF             .          
+h9         -INF            0.0028        +INF             .          
+h10        -INF            0.0033        +INF             .          
+h11        -INF            0.0036        +INF             .          
+h12        -INF            0.0033        +INF             .          
+h13        -INF            0.0030        +INF             .          
+h14        -INF            0.0018        +INF             .          
+h15        -INF            0.0021        +INF             .          
+h16        -INF            0.0021        +INF             .          
+h17        -INF            0.0023        +INF             .          
+h18        -INF            0.0025        +INF             .          
+h19        -INF            0.0030        +INF             .          
+h20        -INF            0.0033        +INF             .          
+h21        -INF            0.0021        +INF             .          
+h22        -INF            0.0018        +INF             .          
+h23        -INF            0.0013        +INF             .          
+h24        -INF            0.0008        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR SumLoss           -INF            0.0529        +INF             .          
+
+  SumLoss  Total system losses in MW/MW
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 14
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE ELD Using NLP From line 130
+
+
+**** SOLVER STATUS FILE LISTED BELOW
+=1
+=2
+=0CONOPT 4         48.6.1 67fbb04b Jan 23, 2025          WEI x86 64bit/MS Window
+=1
+--- *** This solver runs with a demo license. No commercial use.
+=2
+=1
+ 
+ 
+    C O N O P T   version 4.35
+    Copyright (C) GAMS Software GmbH
+                  GAMS Development Corporation
+ 
+=2
+ 
+  ***  Line    0  SET       LFEERR =            0
+ 
+  ***  Line    0  SET       LFEERR =            0
+ 
+  ***  Line    0  SET       LFITER =   2147483647
+ 
+  ***  Line    0  SET       RVTIME =     1.0000000000E+10
+=1
+ 
+    The user model has 242 constraints and 122 variables
+    with 554 Jacobian elements, 192 of which are nonlinear.
+    The Hessian of the Lagrangian has 96 elements on the diagonal,
+    0 elements below the diagonal, and 96 nonlinear variables.
+=2
+ 
+    Iter Phase   Ninf   Infeasibility   RGmax      NSB   Step  InItr MX OK
+       0   0          7.0090599991E-12 (Input point)
+=1
+ 
+    The pre-triangular part of the model has 192 constraints and 0 variables.
+=2
+=1
+    The post-triangular part of the model has 2 constraints and variables.
+=2
+=1
+    There are 24 definitional constraints and defined variables.
+=2
+=1
+ 
+    Preprocessed model has 24 constraints and 96 variables
+    with 96 Jacobian elements, 96 of which are nonlinear.
+=2
+                      7.0090599991E-12 (Full preprocessed model)
+                      8.7618801103E-13 (After scaling)
+ 
+    Iter Phase   Ninf   Infeasibility   RGmax      NSB   Step  InItr MX OK
+ 
+ ** Feasible solution. Value of objective =   7.591770258995E-02
+ 
+Search for an optimal solution.
+ 
+ 
+    Iter Phase   Ninf     Objective     RGmax      NSB   Step  InItr MX OK
+       1   3          5.5791054447E-02 2.3E-03      67 1.0E+00    12 T  T
+       2   3          5.4643403287E-02 1.3E-03      64 3.0E-01    12 F  T
+       3   4          5.2948178482E-02 1.4E-03      64 1.0E+00    19 T  T
+       4   4          5.2937638486E-02 7.8E-05      55 1.0E+00    14 F  T
+       5   4          5.2937633846E-02 1.3E-06      55 1.0E+00     8 F  T
+       6   4          5.2937633846E-02 8.1E-08      55
+=1
+ 
+ ** Optimal solution. Reduced gradient less than tolerance.
+ 
+=2
+=1
+ 
+ CONOPT time Total                            0.004 seconds
+   of which: Function evaluations             0.001 = 25.0%
+             1st Derivative evaluations       0.001 = 25.0%
+             2nd Derivative evaluations       0.000 =  0.0%
+             Directional 2nd Deriv(Hess)      0.000 =  0.0%
+             Interval derivative evals        0.000 =  0.0%
+ 
+=2
+ 
+ Memory: Max used =      0.18 Mbytes
+  Total Allocated =      0.25 Mbytes
+ 
+**** SOLVER STATUS FILE LISTED ABOVE
+GAMS 48.6.1  67fbb04b Jan 23, 2025          WEX-WEI x86 64bit/MS Windows - 03/21/25 15:46:22 Page 15
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----    140 PARAMETER P  
+
+            h1          h2          h3          h4          h5          h6          h7          h8          h9         h10         h11         h12         h13         h14         h15         h16         h17         h18         h19         h20         h21         h22         h23         h24
+
+g1 3.976837E+2 4.473966E+2 4.971222E+2 5.468449E+2 6.000000E+2 5.468322E+2 5.717023E+2 5.965579E+2 6.000000E+2 6.000000E+2 6.000000E+2 6.000000E+2 6.000000E+2 5.468322E+2 5.965678E+2 5.965579E+2 6.000000E+2 6.000000E+2 6.000000E+2 6.000000E+2 5.965432E+2 5.468322E+2 4.722722E+2 3.728230E+2
+g2 1.325783E+2 1.491379E+2 1.657034E+2 1.822767E+2 2.141973E+2 1.822722E+2 1.905669E+2 1.988446E+2 2.573007E+2 3.144733E+2 3.430608E+2 3.144733E+2 2.858844E+2 1.822722E+2 1.988390E+2 1.988446E+2 2.141997E+2 2.306764E+2 2.858952E+2 3.144733E+2 1.988578E+2 1.822722E+2 1.574155E+2 1.242872E+2
+g3 99.42302517 1.118507E+2 1.242760E+2 1.367025E+2 1.606527E+2 1.367106E+2 1.429173E+2 1.491378E+2 1.929745E+2 2.358535E+2 2.572956E+2 2.358535E+2 2.144153E+2 1.367106E+2 1.491377E+2 1.491378E+2 1.606423E+2 1.730116E+2 2.144045E+2 2.358535E+2 1.491371E+2 1.367106E+2 1.180584E+2 93.20697039
+g4 1.704105E+2 1.917356E+2 2.130476E+2 2.343564E+2 2.753834E+2 2.343656E+2 2.450108E+2 2.556746E+2 3.000000E+2 3.000000E+2 3.000000E+2 3.000000E+2 3.000000E+2 2.343656E+2 2.556703E+2 2.556746E+2 2.753913E+2 2.965654E+2 3.000000E+2 3.000000E+2 2.556767E+2 2.343656E+2 2.023884E+2 1.597667E+2
+
+
+----    140 VARIABLE Emit.L                =  3.106404E+5  Total system emissions in kg
+            PARAMETER totLoss              =  5.293763E+2  
+
+----    140 PARAMETER hourLoss  
+
+h1   9.54547283,    h2  12.08134939,    h3  14.91569117,    h4  18.04852481,    h5  23.33487752,    h6  18.04852481,    h7  19.72688443,    h8  21.47987705,    h9  27.52703069,    h10 32.67563342,    h11 35.63628492,    h12 32.67563342,    h13 29.97256194,    h14 18.04852481,    h15 21.47987706,    h16 21.47987705,    h17 23.33487751,    h18 25.33757733,    h19 29.97256196,    h20 32.67563342,    h21 21.47987705,    h22 18.04852481,    h23 13.46121048,    h24  8.38945056
+
+
+----    140 PARAMETER dualSME  
+
+h1  0.00000239,    h2  0.00000269,    h3  0.00000298,    h4  0.00000328,    h5  0.00000386,    h6  0.00000328,    h7  0.00000343,    h8  0.00000358,    h9  0.00000463,    h10 0.00000566,    h11 0.00000618,    h12 0.00000566,    h13 0.00000515,    h14 0.00000328,    h15 0.00000358,    h16 0.00000358,    h17 0.00000386,    h18 0.00000415,    h19 0.00000515,    h20 0.00000566,    h21 0.00000358,    h22 0.00000328,    h23 0.00000283,    h24 0.00000224
+
+
+----    140 PARAMETER dualUP  
+
+            h5          h9         h10         h11         h12         h13         h17         h18         h19         h20
+
+g1 -0.00000026 -0.00000103 -0.00000206 -0.00000258 -0.00000206 -0.00000155 -0.00000026 -0.00000055 -0.00000155 -0.00000206
+g4             -0.00000043 -0.00000146 -0.00000198 -0.00000146 -0.00000095                         -0.00000095 -0.00000146
+
+
+----    140 PARAMETER dualLO  
+
+                      ( ALL  0.00000000 )
+
+
+
+EXECUTION TIME       =        0.094 SECONDS      4 MB  48.6.1 67fbb04b WEX-WEI
 
 
 USER: GAMS Demo, for EULA and demo limitations see   G241001/0001CB-GEN
