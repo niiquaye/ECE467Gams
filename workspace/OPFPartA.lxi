@@ -1,0 +1,104 @@
+B 3 C o m p i l a t i o n
+B 368 E x e c u t i o n
+I 368 PD
+I 374 QD
+I 379 Y
+I 390 Theta
+B 404 Equation Listing    SOLVE OPF Using NLP From line 222
+D 407 CostFn
+D 412 LossEq
+D 417 Equn1
+D 430 Equn2
+D 443 VUp
+D 456 VLo
+D 469 GenUp
+D 482 GenLo
+D 495 QGenUp
+D 508 QGenLo
+B 522 Column Listing      SOLVE OPF Using NLP From line 222
+E 525 V
+E 596 Delta
+E 657 P
+E 693 Q
+E 726 Cost
+E 733 Loss
+B 741 Range Statistics    SOLVE OPF Using NLP From line 222
+B 752 Model Statistics    SOLVE OPF Using NLP From line 222
+B 766 Solution Report     SOLVE OPF Using NLP From line 222
+F 814 CostFn
+F 815 LossEq
+F 820 Equn1
+F 830 Equn2
+F 840 VUp
+F 850 VLo
+F 860 GenUp
+F 870 GenLo
+F 880 QGenUp
+F 890 QGenLo
+G 900 V
+G 910 Delta
+G 920 P
+G 930 Q
+G 942 Cost
+G 943 Loss
+B 1049 E x e c u t i o n
+I 1049 V
+I 1055 Delta
+I 1060 P
+I 1065 Q
+I 1071 Cost
+I 1072 Loss
+I 1073 ReI
+I 1084 ImI
+I 1095 ReP
+I 1106 ImQ
+I 1117 CxP
+B 1131 Equation Listing    SOLVE OPF Using NLP From line 286
+D 1134 CostFn
+D 1139 LossEq
+D 1144 Equn1
+D 1157 Equn2
+D 1170 VUp
+D 1183 VLo
+D 1196 GenUp
+D 1209 GenLo
+D 1222 QGenUp
+D 1235 QGenLo
+B 1249 Column Listing      SOLVE OPF Using NLP From line 286
+E 1252 V
+E 1323 Delta
+E 1384 P
+E 1420 Q
+E 1453 Cost
+E 1460 Loss
+B 1468 Range Statistics    SOLVE OPF Using NLP From line 286
+B 1479 Model Statistics    SOLVE OPF Using NLP From line 286
+B 1493 Solution Report     SOLVE OPF Using NLP From line 286
+F 1541 CostFn
+F 1542 LossEq
+F 1547 Equn1
+F 1557 Equn2
+F 1567 VUp
+F 1577 VLo
+F 1587 GenUp
+F 1597 GenLo
+F 1607 QGenUp
+F 1617 QGenLo
+G 1627 V
+G 1637 Delta
+G 1647 P
+G 1657 Q
+G 1669 Cost
+G 1670 Loss
+B 1773 E x e c u t i o n
+I 1773 V
+I 1779 Delta
+I 1784 P
+I 1789 Q
+I 1795 Cost
+I 1796 Loss
+I 1797 ReI
+I 1808 ImI
+I 1819 ReP
+I 1830 ImQ
+I 1841 CxP

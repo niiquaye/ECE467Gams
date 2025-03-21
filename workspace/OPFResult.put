@@ -1,0 +1,39 @@
+*********************************************************************
+ Case-A: Cost Minimizing OPF Solution
+*********************************************************************
+ Bus   P-Optimal      Q-Optimal          Real MC      Reactive MC
+            (MW)         (MVAr)          ($/MWh)        ($/MVArh)
+   1     400.000          9.053            5.277            0.000
+   2     216.982        142.834            5.680            0.000
+   3       0.000          0.000            6.104            0.084
+   4     181.021        145.241            6.062            0.000
+   5       0.000          0.000            6.217            0.170
+
+Real MC      denotes the effect on cost with change in demand at the bus
+Reactive MC  denotes the effect on cost with change in reactive demand at the bus
+
+
+*********************************************************************
+Case-B: Loss Minimizing OPF Solution
+*********************************************************************
+ Bus   P-Optimal      Q-Optimal          Real MC      Reactive MC
+            (MW)         (MVAr)         (MW/MWh)       (MW/MVArh)
+   1     152.799         45.032            0.000            0.000
+   2     279.699         77.634            0.000            0.000
+   3       0.000          0.000            0.040            0.010
+   4     350.000        125.432            0.013            0.000
+   5       0.000          0.000            0.064            0.026
+
+Real MC      denotes the effect on loss with change in demand at the bus
+Reactive MC  denotes the effect on loss with change in reactive demand at a bus
+
+
+********************************************
+Comparison of Two Cases
+********************************************
+Case      Total Cost      Total Loss
+                 ($)            (MW)
+   A        3453.298          23.003
+   B        4009.301           7.498
+
+
