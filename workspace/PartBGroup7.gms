@@ -25,7 +25,6 @@ Set
 
 Scalar
     Base    'base MVA'                  /100/;
-*    Load    'Total System Load (MW)'    /800/;
 
 **********  DATA SECTION ****************************************
 Table gendata(g,*) 'generator cost characteristics and limits'
@@ -91,9 +90,9 @@ GenUp(g,k)           'Generation upper limit'
 GenLo(g,k)           'Generation lower limit'
 LossFn(k)            'Loss per hour';
 
-EmitFn..   Emit =e= sum((k), sum((g),((Pg(g,k)*Pg(g,k)*Dc(g))+(Pg(g,k)*Ec(g))+(Fc(g)))));
+EmitFn..       Emit =e= sum((k), sum((g),((Pg(g,k)*Pg(g,k)*Dc(g))+(Pg(g,k)*Ec(g))+(Fc(g)))));
 
-LossFn(k)..   Loss(k) =e= 0.00003*Pg("g1",k)*Pg("g1",k)+0.00009*Pg("g2",k)*Pg("g2",k)+0.00012*Pg("g3",k)*Pg("g3",k)+0.00007*Pg("g4",k)*Pg("g4",k);
+LossFn(k)..    Loss(k) =e= 0.00003*Pg("g1",k)*Pg("g1",k)+0.00009*Pg("g2",k)*Pg("g2",k)+0.00012*Pg("g3",k)*Pg("g3",k)+0.00007*Pg("g4",k)*Pg("g4",k);
 
 LoadEq(k)..    sum(g, Pg(g,k)) - PD(k) - Loss(k) =e= 0;
 
