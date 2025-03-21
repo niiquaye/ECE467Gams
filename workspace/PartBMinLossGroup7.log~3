@@ -1,0 +1,74 @@
+
+--- Job PartBMinLossGroup7.gms Start 03/21/25 15:15:17 48.6.1 67fbb04b WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\48\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    PageSize 0
+    ScrDir C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\225a\
+    SysDir C:\GAMS\48\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+*** Time-limited license expired 21 days ago
+Licensee: GAMS Demo, for EULA and demo limitations see   G241001/0001CB-GEN
+          https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+          C:\GAMS\48\gamslice.txt
+          Demo license for demonstration and instructional purposes only
+Processor information: 1 socket(s), 8 core(s), and 8 thread(s) available
+GAMS 48.6.1   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- PartBMinLossGroup7.gms(98) 3 Mb 2 Errors
+*** Error 140 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Unknown symbol
+*** Error  37 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    '=l=' or '=e=' or '=g=' operator expected
+--- PartBMinLossGroup7.gms(116) 3 Mb 3 Errors
+*** Error 257 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Solve statement not checked because of previous errors
+--- PartBMinLossGroup7.gms(119) 3 Mb 4 Errors
+*** Error 141 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- PartBMinLossGroup7.gms(120) 3 Mb 5 Errors
+*** Error 141 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- PartBMinLossGroup7.gms(121) 3 Mb 6 Errors
+*** Error 141 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- PartBMinLossGroup7.gms(122) 3 Mb 7 Errors
+*** Error 141 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- PartBMinLossGroup7.gms(124) 3 Mb 9 Errors
+*** Error 141 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+*** Error 141 in C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBMinLossGroup7.gms
+    Symbol declared but no values have been assigned. Check for missing
+       data definition, assignment, data loading or implicit assignment
+       via a solve statement. Suppress with $onImplicitAssign.
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- PartBMinLossGroup7.gms(124) 3 Mb 9 Errors
+*** Status: Compilation error(s)
+--- Job PartBMinLossGroup7.gms Stop 03/21/25 15:15:18 elapsed 0:00:00.007
