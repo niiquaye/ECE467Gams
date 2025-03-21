@@ -1,11 +1,11 @@
 
---- Job PartBGroup7.gms Start 03/21/25 14:08:48 48.6.1 67fbb04b WEX-WEI x86 64bit/MS Windows
+--- Job PartBGroup7.gms Start 03/21/25 15:06:04 48.6.1 67fbb04b WEX-WEI x86 64bit/MS Windows
 --- Applying:
     C:\GAMS\48\gmsprmNT.txt
 --- GAMS Parameters defined
-    Input C:\Users\Angela\Documents\GAMS\Studio\workspace\PartBGroup7.gms
+    Input C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\PartBGroup7.gms
     PageSize 0
-    ScrDir C:\Users\Angela\Documents\GAMS\Studio\workspace\225a\
+    ScrDir C:\Users\Angela\Documents\GAMS\Studio\ECE467Gams\workspace\225a\
     SysDir C:\GAMS\48\
     LogOption 3
     ErrMsg 1
@@ -21,8 +21,8 @@ Processor information: 1 socket(s), 8 core(s), and 8 thread(s) available
 GAMS 48.6.1   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- Starting compilation
 --- PartBGroup7.gms(120) 3 Mb
---- Starting execution: elapsed 0:00:00.009
---- PartBGroup7.gms(77) 4 Mb
+--- Starting execution: elapsed 0:00:00.006
+--- PartBGroup7.gms(76) 4 Mb
 --- Generating NLP model ELD
 --- PartBGroup7.gms(112) 6 Mb
 ---   217 rows  121 columns  409 non-zeroes
@@ -32,7 +32,7 @@ GAMS 48.6.1   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- Bound     [min, max] : [        NA,        NA]
 --- Matrix    [min, max] : [ 1.000E+00, 1.355E+02]
 --- PartBGroup7.gms(112) 4 Mb
---- Executing CONOPT (Solvelink=2): elapsed 0:00:00.018
+--- Executing CONOPT (Solvelink=2): elapsed 0:00:00.020
 
 CONOPT 4         48.6.1 67fbb04b Jan 23, 2025          WEI x86 64bit/MS Window
 
@@ -69,7 +69,7 @@ CONOPT 4         48.6.1 67fbb04b Jan 23, 2025          WEI x86 64bit/MS Window
  ** Optimal solution. There are no superbasic variables.
  
 --- Reading solution for model ELD
---- Executing after solve: elapsed 0:00:00.087
+--- Executing after solve: elapsed 0:00:00.060
 --- PartBGroup7.gms(120) 4 Mb
 *** Status: Normal completion
---- Job PartBGroup7.gms Stop 03/21/25 14:08:48 elapsed 0:00:00.088
+--- Job PartBGroup7.gms Stop 03/21/25 15:06:04 elapsed 0:00:00.061

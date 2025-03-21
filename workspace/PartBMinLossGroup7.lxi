@@ -1,0 +1,34 @@
+B 3 C o m p i l a t i o n
+B 136 Equation Listing    SOLVE ELD Using NLP From line 117
+D 139 SumLossFn
+D 144 EmitFn
+D 149 LoadEq
+D 166 GenUp
+D 183 GenLo
+D 200 LossFn
+B 218 Column Listing      SOLVE ELD Using NLP From line 117
+E 221 Emit
+E 228 Pg
+E 280 Loss
+E 320 SumLoss
+B 328 Range Statistics    SOLVE ELD Using NLP From line 117
+B 339 Model Statistics    SOLVE ELD Using NLP From line 117
+B 353 Solution Report     SOLVE ELD Using NLP From line 117
+F 402 SumLossFn
+F 403 EmitFn
+F 408 LoadEq
+F 437 GenUp
+F 538 GenLo
+F 639 LossFn
+G 670 Emit
+G 674 Pg
+G 775 Loss
+G 806 SumLoss
+B 908 E x e c u t i o n
+I 908 P
+I 920 Emit
+I 921 SumLoss
+I 922 Loss
+I 927 dualSME
+I 932 dualUP
+I 941 dualLO
